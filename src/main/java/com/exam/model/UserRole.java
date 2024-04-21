@@ -1,7 +1,6 @@
 package com.exam.model;
 
 
-import javax.management.relation.Role;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -22,12 +21,12 @@ public class UserRole {
 	private User user;
 
 	@ManyToOne
-	private Role role;
+	private Roles role;
 
 	
 	
 	
-	public UserRole(Long userRoleId, User user, Role role) {
+	public UserRole(Long userRoleId, User user, Roles role) {
 		super();
 		this.userRoleId = userRoleId;
 		this.user = user;
@@ -58,11 +57,11 @@ public class UserRole {
 		this.user = user;
 	}
 
-	public Role getRole() {
+	public Roles getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(Roles role) {
 		this.role = role;
 	}
 	
