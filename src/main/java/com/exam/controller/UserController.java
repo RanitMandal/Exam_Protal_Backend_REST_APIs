@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +31,7 @@ public class UserController {
 
 	// Creat User API
 	@PostMapping("/") 
-	public User createUser(@RequestBody User user) throws Exception{
+	public ResponseEntity<User> createUser(@RequestBody User user) throws Exception{
 
 		Role role = new Role();
 
@@ -42,7 +46,7 @@ public class UserController {
 
 		userRoleSet.add(userRole);
 
-		return this.userService.createUser(user, userRoleSet);
+		return new ResponseEntity<User>(this.userService.createUser(user, userRoleSet),HttpStatus.CREATED);
 
 	}
 	
@@ -51,5 +55,13 @@ public class UserController {
 	public User getUser(@PathVariable("userName") String userName) {
 		
 		return this.userService.getUserByUserName(userName);
+	}
+	
+	//Delete User
+	@DeleteMapping("/{userId}")
+	public String deleteUser(@PathVariable("userId") Long userId) {
+		
+		this.userService.deleteById(userId);
+		return "User Delete Succesfully";
 	}
 }
