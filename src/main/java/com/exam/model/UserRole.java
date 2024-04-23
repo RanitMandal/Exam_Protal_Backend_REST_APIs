@@ -21,12 +21,12 @@ public class UserRole {
 	private User user;
 
 	@ManyToOne
-	private Roles role;
+	private Role role;
 
 	
 	
 	
-	public UserRole(Long userRoleId, User user, Roles role) {
+	public UserRole(Long userRoleId, User user, Role role) {
 		super();
 		this.userRoleId = userRoleId;
 		this.user = user;
@@ -57,12 +57,12 @@ public class UserRole {
 		this.user = user;
 	}
 
-	public Roles getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(Roles role) {
-		this.role = role;
+	public void setRole(Role roles) {
+		this.role = roles;
 	}
 	
 }

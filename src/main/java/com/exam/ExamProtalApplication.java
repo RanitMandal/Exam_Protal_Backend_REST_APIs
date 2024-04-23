@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.exam.model.Roles;
+import com.exam.model.Role;
 import com.exam.model.User;
 import com.exam.model.UserRole;
 import com.exam.service.UserService;
@@ -28,33 +28,33 @@ public class ExamProtalApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		System.out.println("Hi code there");
 		
-		User user =new User();
-		
-		user.setEmail("ranitmandal17@gmail.com");
-		user.setFristName("Ranit");
-		user.setLastName("Mandal");
-		user.setUserName("ranitmandal17");
-		user.setPassword("123");
-		user.setProfile("default.png");
-		
-		Roles roles = new Roles();
-		
-
-		roles.setId(44L);
-		roles.setRoleName("ADMIN");
-		
-		
-		
-		UserRole userRole =new UserRole();
-		userRole.setRole(roles);
-		userRole.setUser(user);
-		
-		Set<UserRole> userRoleSet= new HashSet<>();
-		
-		userRoleSet.add(userRole);
-		
-		User creatUser = this.userService.createUser(user, userRoleSet);
-		System.out.println(creatUser);
-		
+//		User user =new User();
+//		
+//		user.setEmail("ranitmandal17@gmail.com");
+//		user.setFristName("Ranit");
+//		user.setLastName("Mandal");
+//		user.setUserName("ranitmandal17");
+//		user.setPassword("123");
+//		user.setProfile("default.png");
+//		
+//		Role roles = new Role();
+//		
+//
+//		roles.setId(44L);
+//		roles.setRoleName("ADMIN");
+//		
+//		
+//		
+//		UserRole userRole =new UserRole();
+//		userRole.setRole(roles);
+//		userRole.setUser(user);
+//		
+//		Set<UserRole> userRoleSet= new HashSet<>();
+//		
+//		userRoleSet.add(userRole);
+//		
+//		User creatUser = this.userService.createUser(user, userRoleSet);
+//		System.out.println(creatUser);
+//		
 	}
 }

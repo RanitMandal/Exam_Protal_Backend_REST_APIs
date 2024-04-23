@@ -2,8 +2,8 @@ package com.exam.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.exam.model.Roles;
+import com.exam.model.Role;
 
-public interface RoleRepo extends JpaRepository<Roles, Long> {
+public interface RoleRepo extends JpaRepository<Role, Long> {
 
 }
