@@ -41,4 +41,10 @@ public class UserServiceImpl implements UserService{
 		return local;
 	}
 
+	@Override
+	public User getUserByUserName(String username) {
+
+		return this.userRepo.findByUserName(username);
+	}
+
 }

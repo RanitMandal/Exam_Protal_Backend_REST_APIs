@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,5 +44,12 @@ public class UserController {
 
 		return this.userService.createUser(user, userRoleSet);
 
+	}
+	
+	//Get User
+	@GetMapping("/{userName}")
+	public User getUser(@PathVariable("userName") String userName) {
+		
+		return this.userService.getUserByUserName(userName);
 	}
 }
