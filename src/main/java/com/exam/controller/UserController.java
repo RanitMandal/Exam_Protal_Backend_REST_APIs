@@ -52,16 +52,16 @@ public class UserController {
 	
 	//Get User
 	@GetMapping("/{userName}")
-	public User getUser(@PathVariable("userName") String userName) {
+	public ResponseEntity<User> getUser(@PathVariable("userName") String userName) {
 		
-		return this.userService.getUserByUserName(userName);
+		return new ResponseEntity<User>(this.userService.getUserByUserName(userName),HttpStatus.OK);
 	}
 	
 	//Delete User
 	@DeleteMapping("/{userId}")
-	public String deleteUser(@PathVariable("userId") Long userId) {
+	public ResponseEntity<String> deleteUser(@PathVariable("userId") Long userId) {
 		
 		this.userService.deleteById(userId);
-		return "User Delete Succesfully";
+		return new ResponseEntity<String>("User Delete Succesfully",HttpStatus.ACCEPTED);
 	}
 }
